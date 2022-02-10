@@ -40,7 +40,7 @@ TIMEOUT = 2.5
 
 
 def __(string, multi_translate):
-    """Translates text into all locales on the stack"""
+    """Mətni bütün dillərə tərcümə edir"""
     translations = list()
     locales = list()
 
@@ -66,7 +66,7 @@ def __(string, multi_translate):
 
 
 def list_subtract(list1, list2):
-    """ Helper function to subtract two lists and return the sorted result """
+    """ İki siyahı çıxarmaq və çeşidlənmiş nəticəni qaytarmaq üçün köməkçi funksiya """
     list1 = list1.copy()
 
     for x in list2:
@@ -76,7 +76,7 @@ def list_subtract(list1, list2):
 
 
 def display_name(user):
-    """ Get the current players name including their username, if possible """
+    """ Mümkündürsə, istifadəçi adı daxil olmaqla, cari oyunçuların adını əldə edin """
     user_name = user.first_name
     if user.username:
         user_name += ' (@' + user.username + ')'
@@ -84,41 +84,41 @@ def display_name(user):
 
 
 def display_color(color):
-    """ Convert a color code to actual color name """
+    """ Rəng kodunu həqiqi rəng adına çevirin """
     if color == "r":
-        return _("{emoji} Red").format(emoji=Emoji.HEAVY_BLACK_HEART)
+        return _("{emoji} Qırmızı").format(emoji=Emoji.HEAVY_BLACK_HEART)
     if color == "b":
-        return _("{emoji} Blue").format(emoji=Emoji.BLUE_HEART)
+        return _("{emoji} Göy").format(emoji=Emoji.BLUE_HEART)
     if color == "g":
-        return _("{emoji} Green").format(emoji=Emoji.GREEN_HEART)
+        return _("{emoji} Yaşıl").format(emoji=Emoji.GREEN_HEART)
     if color == "y":
-        return _("{emoji} Yellow").format(emoji=Emoji.YELLOW_HEART)
+        return _("{emoji} Sarı").format(emoji=Emoji.YELLOW_HEART)
 
 
 def display_color_group(color, game):
-    """ Convert a color code to actual color name """
+    """ Rəng kodunu həqiqi rəng adına çevirin """
     if color == "r":
-        return __("{emoji} Red", game.translate).format(
+        return __("{emoji} Qırmızı", game.translate).format(
             emoji=Emoji.HEAVY_BLACK_HEART)
     if color == "b":
-        return __("{emoji} Blue", game.translate).format(
+        return __("{emoji} Göy", game.translate).format(
             emoji=Emoji.BLUE_HEART)
     if color == "g":
-        return __("{emoji} Green", game.translate).format(
+        return __("{emoji} Yaşıl", game.translate).format(
             emoji=Emoji.GREEN_HEART)
     if color == "y":
-        return __("{emoji} Yellow", game.translate).format(
+        return __("{emoji} Sarı", game.translate).format(
             emoji=Emoji.YELLOW_HEART)
 
 
 def error(bot, update, error):
-    """Simple error handler"""
+    """Sadə səhv idarəedicisi"""
     logger.exception(error)
 
 
 @run_async
 def send_async(bot, *args, **kwargs):
-    """Send a message asynchronously"""
+    """Mesajı asinxron olaraq göndərin"""
     if 'timeout' not in kwargs:
         kwargs['timeout'] = TIMEOUT
 
